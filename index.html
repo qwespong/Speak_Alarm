@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="clock" id="clock">00:00:00</div>
+        
+        <div class="development-notice">
+            This app is currently in development and will feature speech-to-text functionality to provide spoken reminders for alarms. <br>
+It aims to offer a simple yet effective way to manage alarms with customized purposes.. 
+
+        </div>
+
+        <button class="button" onclick="openAlarmModal()">Set Alarm</button>
+
+        <div class="alarms-list" id="alarmsList"></div>
+    </div>
+
+    <div id="alarmModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAlarmModal()">&times;</span>
+            <h2>Set Alarm</h2>
+            <form id="alarmForm">
+                <div class="form-group">
+                    <label for="alarmTime">Time:</label>
+                    <input type="time" id="alarmTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="alarmPurpose">Purpose:</label>
+                    <textarea id="alarmPurpose" maxlength="5000" rows="3" placeholder="Enter alarm purpose"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="alarmSound">Alarm Sound:</label>
+                    <select id="alarmSound">
+                        <option value="beep">Beep</option>
+                        <option value="chime">Chime</option>
+                        <option value="bell">Bell</option>
+                    </select>
+                </div>
+                <button type="submit" class="button">Save Alarm</button>
+            </form>
+        </div>
+    </div>
+
+    <audio id="alarmAudio"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
